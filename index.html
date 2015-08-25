@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nashville Software School</title>
+  </head>
+  <body ng-app="TodoApp">
+    <section ng-controller="TodoCtrl">
+      <h1>{{ title }}</h1>
+
+      <div>
+        <input type="text" ng-model="macaroni" />
+        <div> {{ macaroni }} </div>
+      </div>
+
+      <div>
+        <ul class="todo-list" ng-repeat="todo in todos">
+          <li>{{todo.name}}<button ng-click="killTodo(todo)">Finnish</button></li>
+        </ul>
+      </div>
+
+      <div>
+        <input type="text" ng-model="newTodo">
+        <button ng-click="addTodo()">Create</button>
+      </div>
+      
+    </section>
+
+    <section ng-controller="SongCtrl">
+      <h1>{{ title }}</h1>
+
+      <div>
+        <ul class="songs" ng-repeat="key in songs">
+          <li>{{key.name}}</li>
+          <li>{{key.artist}}</li>
+          <li>{{key.album}}</li>
+          <li>{{key.year}}</li>
+          <button ng-click="deleteSong(key)">Delete</button>
+        </ul>
+      </div>
+
+      <div>
+        <form>
+          <label>Add new Song</label><br>
+          <input placeholder="Title" type="text" ng-model="newName"><br>
+          <input placeholder="Artist" type="text" ng-model="newArtist"><br>
+          <input placeholder="Album" type="text" ng-model="newAlbum"><br>
+          <input placeholder="Year" type="text" ng-model="newYear"><br>
+          <button ng-click="addSong()">Create</button>
+        </form>
+      </div>
+    </section>
+
+
+
+    <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bower_components/angular/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/Todo.js"></script>
+    <script src="app/controllers/song.js"></script>
+  </body>
+</html>
+
+
+
